@@ -81,7 +81,7 @@ let view = vide {
                     do itemName.Reset()) { 
                         "Add Item"
                 }
-            TextBox.bind(itemName)
+            TextBox.BindText(itemName)
         }
 
         VStack.Margin(4) {
@@ -93,7 +93,7 @@ let view = vide {
                         .Click(fun _ -> setItems (todoList.Value.items |> List.except [item]))
                         { "Remove" }
                     CheckBox
-                        .bind(item.isDone, fun value -> item.isDone <- value)
+                        .BindIsChecked(item.isDone, fun value -> item.isDone <- value)
                     TextBlock
                         .VerticalAlignment(VA.Center)
                         .TextTrimming(TextTrimming.CharacterEllipsis)
